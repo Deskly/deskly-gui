@@ -15,12 +15,14 @@
   "main": "main.js",
   "scripts": {
     "start": "electron .",
+    "build": "electron-packager . Deskly --all",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
     "deskly-cli": "^1.1.0"
   },
   "devDependencies": {
-    "electron": "^1.7.6"
+    "electron": "^1.7.6",
+    "electron-packager": "^9.0.1"
   }
 }
