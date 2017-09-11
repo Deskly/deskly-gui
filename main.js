@@ -20,12 +20,13 @@ const conf = new Configstore(pkg.name, {
 
 let d = new Deskly()
 let dir = path.join(__dirname, 'generated/')
+let icon = path.join(__dirname, 'assets', os.platform() == 'win32' ? 'iconWin.png' : 'iconTemplate.png')
 
 if (app.dock)
   app.dock.hide()
 
 app.on('ready', () => {
-  var tray = new Tray(path.join(__dirname, 'assets', os.platform() == 'win32' ? 'iconWin.png' : 'iconTemplate.png'))
+  var tray = new Tray(icon)
   var menu = Menu.buildFromTemplate([{
       label: 'Generate Desktop Image',
       click: () => {
