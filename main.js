@@ -3,6 +3,7 @@ const {
   Tray,
   Menu
 } = require('electron')
+const os = require('os')
 const path = require('path')
 const fs = require('fs')
 const got = require('got')
@@ -24,7 +25,7 @@ if (app.dock)
   app.dock.hide()
 
 app.on('ready', () => {
-  var tray = new Tray(path.join(__dirname, 'assets/iconTemplate.png'))
+  var tray = new Tray(path.join(__dirname, 'assets', os.platform() == 'win32' ? 'iconWin.png' : 'iconTemplate.png'))
   var menu = Menu.buildFromTemplate([{
       label: 'Generate Desktop Image',
       click: () => {
